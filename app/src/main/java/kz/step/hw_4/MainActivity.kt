@@ -5,23 +5,41 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
     class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+        var editLogin: EditText? = null
+        var editPassword: EditText? = null
+        var buttonEnter: Button? = null
+        var textView: TextView? = null
+
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initializeViews()
+        initializeLiseners()
 
-        val submit = findViewById<Button>(R.id.button_sent_message)
-
-        submit.setOnClickListener {
-            val message = "“Hello i have written Intent which\n" +
-                    "sending you this message"
-            sendMessage(message);
-        }
     }
+        private fun initializeViews() {
+            buttonEnter = findViewById(R.id.button_enter)
+            editLogin = findViewById(R.id.editText_login)
+            editPassword = findViewById(R.id.password_toggle)
+            textView = findViewById(R.id.textView_data)
+        }
 
-    @SuppressLint("QueryPermissionsNeeded")
+        private fun initializeLiseners() {
+            buttonEnter?.setOnClickListener {
+                textView?.text = "\nВаш Логин: " + editLogin?.text.toString() + "\n\nВаш пароль: " + editPassword?.text.toString()
+
+                val message = "\nВаш Логин: " + editLogin?.text.toString() + "\nВаш пароль: " + editPassword?.text.toString()
+                sendMessage(message)
+             }
+        }
+
+        @SuppressLint("QueryPermissionsNeeded")
     fun sendMessage(message: String) {
 
         val intent = Intent(Intent.ACTION_SEND)

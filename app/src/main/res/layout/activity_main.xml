@@ -6,12 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<Button
-    android:id="@+id/button_sent_message"
-    android:text="HELLO FRIEND"
-    android:layout_marginTop="100dp"
+<EditText
+    android:id="@+id/editText_login"
+    android:hint="Введите логин: "
     android:layout_width="match_parent"
     android:layout_height="40dp"/>
+
+    <EditText
+        android:id="@+id/password_toggle"
+        android:hint="Введите пароль: "
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="40dp"/>
+
+    <Button
+        android:id="@+id/button_enter"
+        android:text="ENTER!"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <TextView
+        android:id="@+id/textView_data"
+        android:layout_marginTop="150dp"
+        android:hint="Данные: "
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
 
 
 </RelativeLayout>
